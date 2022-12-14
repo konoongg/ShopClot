@@ -1,0 +1,49 @@
+<%- include("header.ejs") %>
+<div class='row'>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>название</th>
+            <th>описание</th>
+            <th>цена</th>
+            <th>количество</th>
+            <th>статус</th>
+            <th>фотография</th>
+            <th>изменить фото</th>
+            <th>сохранить</th>
+        </tr>
+        <% for (let i in ms) {%>
+        <tr class="nh">
+            <td><%= ms[i].id%></td>
+            <td><input value = '<%= ms[i].name%>' ></td>
+            <td><textarea><%= ms[i].des %></textarea></td>
+            <td><input value = '<%= ms[i].price %>' ></td>
+            <td><input value = '<%= ms[i].amount%>' ></td>
+            <td><%= ms[i].statuss %> </td>
+            <td><img width= '250px'  src = 'upload/<%= ms[i].img %>'></td>
+            <td>
+                <div class="file-field input-field">
+                    <div class="btn">
+                      <span>File</span>
+                      <input type="file" multiple="" id='img' name = 'img' value ='url '>
+                    </div>
+                    <div class="file-path-wrapper">
+                      <input class="file-path validate valid" value = '<%= ms[i].img %>' type="text" placeholder="Upload one or more files">
+                    </div>
+                  </div>
+            </div>
+            </td>
+            <td>
+                <input  class = '_red' style="margin-top:10px;" type="button" value="сохранить "><br>
+                <input  class = '_dd' style="margin-top:10px;" type="button" value="удалить">
+            </td>
+        </tr>
+        <% } %>
+
+    </table>
+    <p style = 'text-align:center;' ><input  class = 'all_red' style="margin-top:10px;" type="button" value="сохранить все изменения"></p>
+     
+</div>
+</body>
+<script src="static/red_p.js"> </script>></script>
+</html>

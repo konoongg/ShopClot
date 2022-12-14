@@ -1,0 +1,57 @@
+<%- include("header.ejs") %>
+<div class='row'>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>никнейм</th>
+            <th>заказы</th>
+            <th>статус</th>
+            <th >изменения</th>
+        </tr>
+        <% for (let i in ms){%>
+            <tr>
+            <td class='id' ><%= ms[i].id %></td>
+            <td><input class='nm'value = '<%= ms[i].name %>' > </td>
+             <td>
+                <% if(ms[i].order.length !=0 ){%>
+                    <%= ms[i].order%>
+                <%}else{%>
+                    нет заказов
+                <%}%>
+
+            </td>
+            <td  ><%= ms[i].status %></td>
+            <td>
+                <input  class = '_red' style="margin-top:10px;" type="button" value="сохранить "><br>
+                <input  class = '_dd' style="margin-top:10px;" type="button" value="удалить">
+            </td>
+        </tr>
+        <%}%>
+        
+    </table>
+     
+</div>
+</body>
+<script>
+    $('._red').click(async function(){
+        let name = $(this).parent().parent().find('input.nm')[0].value
+        let id = $(this).parent().parent().find('td.id')[0].textContent
+        let p1 = await  fetch('http://localhost:3000/admin/w_users', { 
+        method: 'POST',  
+        headers: {'Content-Type': 'application/json;charset=utf-8' },
+        body: JSON.stringify({id,name})
+        }) 
+
+    })
+
+    $('._dd').click(async function(){
+        let id = $(this).parent().parent().find('td.id')[0].textContent
+        let p1 = await  fetch('http://localhost:3000/admin/w_users/dd', { 
+        method: 'POST',  
+        headers: {'Content-Type': 'application/json;charset=utf-8' },
+        body: JSON.stringify({id})
+        }) 
+
+    })
+</script>
+</html>

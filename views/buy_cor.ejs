@@ -1,0 +1,32 @@
+<%- include("header.ejs") %>
+<div class='row'>
+    <ul class="collection">
+    <% if (ms.length !=0){ %>
+        <% for (let i of ms) {%>
+            <li id ='<%=i.id%>' class="collection-item avatar">
+                <img src="upload/<%= i.img %>" alt="" class="circle">
+                <span class="title"><%=i.name%></span>
+                <p><%=i.des%></p>
+                <P ><%=i.price%> рублей</P>
+                <input type="number" value="<%=i.count %>">
+            </li>
+
+            
+                    
+            
+            <%}%>
+            </ul>
+            <div style="text-align:center;">
+                <input id = 'btn_ofor' class="waves-effect waves-light btn-small" value="Оформить заказ"  type = 'submit'>  
+            </div> 
+        <%} else{%>
+            <P >в корзине пока ничего нет</P>
+        <%}%>
+
+     
+</div>
+</body>
+<script src="static/buy.js"></script>
+<script src="static/ofor.js"></script>
+</html>
+

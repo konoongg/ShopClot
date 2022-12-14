@@ -1,0 +1,68 @@
+<%- include("header.ejs") %>
+<div class='row'>
+    <ul  class="collapsible">
+            <% if (ms.length !=0){ %>
+                <% for (let i in ms) {%>
+                    <li>
+                    <div id = '<%=i%>' class="collapsible-header">Номер заказа: <%=i%> - <%=ms[i][0].status%></div>
+                        <div class="collapsible-body"><span>
+                            <span class="title"></span>
+                            <p>id пользователя: <%=ms[i][0].id_user%></p>
+                            <p>дата: <%=ms[i][0].date%></p>
+                            <input class = '_red_order <%=i%>'  type = 'submit' value = 'оформить'>
+                            <input class = '_del_order <%=i%>'  type = 'submit' value = 'удалить'>
+                            <table >
+                                <tr>
+                                    <th>id продукта</th>
+                                    <th>название</th>
+                                    <th>цена</th>
+                                    <th>количество</th>
+                                    <th colspan="2" >цена за все</th>
+                                </tr>
+                                <% for (let j in ms[i]) {%>
+                                    <tr>
+                                        <td class = '_id'><%=ms[i][j].id_product%></td>
+                                        <td><%=ms[i][j].name%></td>
+                                        <td><input class = 'nb' type="text" value=<%=ms[i][j].price_product%>></td>
+                                        <td><input class = 'nb' type="text" value=<%=ms[i][j].count%>></td>
+                                        <td><%=(ms[i][j].price_product * ms[i][j].count)%></td>
+                                        <td ><input class = '_del <%=ms[i][j].id_product%> <%=i%>'  type = 'submit' value = 'удалить'></td>
+                                    </tr>
+                                    
+                                <%}%>
+                            </table>
+                            
+                            
+                            <input class = '_red' style="margin-top:10px;" type="button" value="сохранить изменения">
+                            <div>
+                                <input  class = 'nb' type="text"  placeholder="id товара">
+                                <input class = 'nb' type="text" placeholder="количество" value='1'>
+                                <input class = '_dd' style="margin-top:10px;" type="button" value="добавить">
+                            </div>
+                    </span>
+                </div>
+                </li>
+                <%}%>
+                    
+            <%}else {%>
+                <P >заказов пока нет</P>
+            <%}%>
+
+            
+
+        
+    </ul>
+    <p style = 'text-align:center;' ><input  class = 'all_red' style="margin-top:10px;" type="button" value="сохранить все изменения"></p>
+     
+</div>
+</body>
+<script src="static/red.js"></script>
+<script>
+	 document.addEventListener('DOMContentLoaded', function() {
+		var elems = document.querySelectorAll('.collapsible');
+        var instances = M.Collapsible.init(elems,accordion=true);
+		
+	});
+        
+</script>
+</html>

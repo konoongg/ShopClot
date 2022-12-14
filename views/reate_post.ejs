@@ -1,0 +1,21 @@
+ <%- include("header.ejs") %>
+    <div class='container'>
+        <h3 id = 'err' style ='color:red;'></h3>
+        <input  class="custom-class" type ='text' id='price' name='price' value ='100'>
+        <input class="custom-class" type = 'text' id='nm' name = 'nm' value ='название'>
+        <input class="custom-class" type = 'text' id='cn' name = 'cn' value ='10'>
+        <textarea class="custom-class" id='des' name = 'des' >описание</textarea>
+        <div class="file-field input-field">
+            <div class="btn">
+              <span>File</span>
+              <input type="file" multiple="" id='img' name = 'img' value ='url '>
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate valid" type="text" placeholder="Upload one or more files">
+            </div>
+          </div>
+        <input class="waves-effect waves-light btn-small"  id ='bt_post' type = 'submit'>
+    </div>
+</body>
+<script src ='/static/cr_post.js'></script>
+</html>

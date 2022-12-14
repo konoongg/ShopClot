@@ -1,0 +1,35 @@
+<%- include("header.ejs") %>
+<div class='row'>
+    <% for (let i of ms) {%>
+      <% if (i.statuss =='есть' && i.amount>0) {%>
+        <div class="row">
+            <div class="col s12 m4">
+              <div class="card">
+                <a ><div style ="text-align:center;" class="card blue-grey darken-1">
+                <div class="card-image">
+                  <img src="upload/<%= i.img %>">
+                  <span class="card-title"><%=i.name%></span>
+                </div></a>
+                <div class="card-content">
+                  <p><%=i.des%></p>
+                </div>
+                <div class="card-action">
+                    <P ><%=i.price%> рублей</P>
+                    <p style='text-align: right;'> в наличии: <%=i.amount%> </p>
+                  <a id = 'buy_<%=i.id%>' class='buy' href="#">добавить в корзину</a>
+                  <input type="number" id ='kv' name ='kv' value="1">
+                </div>
+              </div>
+            </div>
+          </div>
+           
+                
+          <%}%>
+        <%}%>
+
+
+    
+</div>
+</body>
+<script src="static/buy.js"></script>
+</html>

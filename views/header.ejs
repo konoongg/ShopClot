@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="static/sidnav.js"></script>
+    <script src="static/lv.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+
+    <nav>
+        <div style = 'position: relative;z-index: 5' class="nav-wrapper">
+          <a href="#" class="brand-logo">Logo</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <%if(login!=0){%>
+              <li><a href="/">главная</a></li>
+              <li data-target="slide-out" class="sidenav-trigger" ><a href="">магазин</a>  </li>
+            <%}%>
+            <% if (login == undefined){%>
+            <li><a class="btn waves-effect waves-light" href="/auth/reg">регистрация</a></li>
+            <li><a class="btn waves-effect waves-light"  href="/auth/log">войти</a></li>
+            <%} else{%>
+              <li><a class="btn waves-effect waves-light" id = 'lv' href="#">выйти</a></li>
+              <%}%>
+              <%if(login!=0){%>
+              <li id="i_img"><a href="/by/buy_cor"><i class="material-icons">accessible</i></a></li><%}%>
+        </div>
+      </nav>
+    
+
+
+
+      <ul id="slide-out" class="sidenav">
+        <li><div class="user-view">
+          <div class="background">
+            <img src="images/office.jpg">
+          </div>
+          <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+          
+          
+        </div></li>
+        <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+        <li><a href="/post/posts">posts</a></li>
+        <li><div class="divider"></div></li>
+        <li><a class="subheader">Subheader</a></li>
+        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+      </ul>  

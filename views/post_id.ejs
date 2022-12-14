@@ -1,0 +1,18 @@
+<%- include("header.ejs") %>
+<div class="card-content white-text">
+    <span class="card-title"><%=ms.name%></span>
+    <div style ="text-align:center;">
+        <img width ='300px' height='200px' src="upload/<%= ms.img %>">
+        <p ><%=ms.des%></p>
+    </div>
+    
+    </div>
+    <div style ="text-align:center;" class="card-action">
+    <P ><%=ms.price%> рублей</P>
+    <a id = 'buy_<%=ms.id%>' class='buy btn' href="#">добавить в корзину</a>
+    </div>
+    
+
+</body>
+<script src="static/buy.js"></script>
+</html>
